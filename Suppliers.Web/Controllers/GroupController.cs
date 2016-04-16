@@ -1,10 +1,7 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Suppliers.Business.Business;
-using Suppliers.EF;
-using Suppliers.EF.DataModel;
 using Suppliers.Web.Models;
 
 namespace Suppliers.Web.Controllers

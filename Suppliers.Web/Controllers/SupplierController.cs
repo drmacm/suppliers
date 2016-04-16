@@ -2,9 +2,6 @@
 using System.Net;
 using System.Web.Mvc;
 using Suppliers.Business.Business;
-using Suppliers.Business.IDal;
-using Suppliers.EF;
-using Suppliers.EF.Dal;
 using Suppliers.Web.Models;
 
 namespace Suppliers.Web.Controllers
