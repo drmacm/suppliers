@@ -16,7 +16,7 @@ namespace Suppliers.Business.IDal
         /// <summary>Retrieves a single group.</summary>
         SupplierGroup GetOne(int id);
 
-        /// <summary>Creates a new group</summary>
+        /// <summary>Creates a new group.</summary>
         void Create(SupplierGroup group);
 
         /// <summary>Updates an existing group.</summary>

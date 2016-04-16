@@ -20,7 +20,16 @@ namespace Suppliers.Business.Business
             this.supplierDal = supplierDal;
         }
 
-        /// <summary>Creates a new supplier.</summary>
+        public IList<Supplier> GetAllSuppliers()
+        {
+            return supplierDal.GetAll();
+        }
+
+        public Supplier GetSupplier(int id)
+        {
+            return supplierDal.GetOne(id);
+        }
+
         public void CreateSupplier(int id, string name, string address, string emailAddress, string phoneNumber, SupplierGroup group)
         {
             var supplier = new Supplier(id, name, address, emailAddress, phoneNumber, group);
@@ -28,10 +37,16 @@ namespace Suppliers.Business.Business
             supplierDal.Create(supplier);
         }
 
-        /// <summary>Retrieves all suppliers.</summary>
-        public IList<Supplier> GetAll()
+        public void UpdateSupplier(int id, string name, string address, string emailAddress, string phoneNumber, SupplierGroup group)
         {
-            return supplierDal.GetAll();
+            var supplier = new Supplier(id, name, address, emailAddress, phoneNumber, group);
+
+            supplierDal.Update(supplier);
+        }
+
+        public void DeleteSupplier(int id)
+        {
+            supplierDal.Delete(id);
         }
     }
 }

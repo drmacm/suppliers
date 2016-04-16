@@ -16,7 +16,7 @@ namespace Suppliers.Business.IDal
         /// <summary>Retrieves a single supplier.</summary>
         Supplier GetOne(int id);
 
-        /// <summary>Creates a new supplier</summary>
+        /// <summary>Creates a new supplier.</summary>
         void Create(Supplier supplier);
 
         /// <summary>Updates an existing supplier.</summary>
