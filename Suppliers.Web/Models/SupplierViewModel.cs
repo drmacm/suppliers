@@ -27,6 +27,7 @@ namespace Suppliers.Web.Models
 
         public int GroupId { get; set; }
 
+        public string GroupName { get; set; }
 
         public static SupplierViewModel FromSupplier(Supplier supplier)
         {
@@ -37,7 +38,8 @@ namespace Suppliers.Web.Models
                 Address = supplier.Address,
                 EmailAddress = supplier.EmailAddress.Address,
                 PhoneNumber = supplier.PhoneNumber,
-                GroupId = supplier.Group.Id
+                GroupId = supplier.Group.Id,
+                GroupName = supplier.Group.Name
             };
         }
     }
