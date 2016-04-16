@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Suppliers.Business.Business;
@@ -8,15 +9,14 @@ namespace Suppliers.Web.Controllers
 {
     public class GroupController : Controller
     {
-        private readonly SupplierBll supplierBll;
         private readonly SupplierGroupBll supplierGroupBll;
 
         /// <summary>Creates a new instance of <see cref="SupplierController"></summary>
-        /// <param name="supplierBll">Contains business rules related to <see cref="Supplier"/> objects.</param>
         /// <param name="supplierGroupBll">Contains business rules related to <see cref="SupplierGroup"/> objects.</param>
-        public GroupController(SupplierBll supplierBll, SupplierGroupBll supplierGroupBll)
+        public GroupController(SupplierGroupBll supplierGroupBll)
         {
-            this.supplierBll = supplierBll;
+            if (supplierGroupBll == null) throw new ArgumentNullException("supplierGroupBll");
+
             this.supplierGroupBll = supplierGroupBll;
         }
 

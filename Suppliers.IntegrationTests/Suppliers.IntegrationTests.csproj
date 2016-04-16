@@ -69,6 +69,10 @@
       <Project>{df7a2565-27a8-40c0-8bee-ec77d70cb1b2}</Project>
       <Name>Suppliers.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Suppliers.DataAccess\Suppliers.DataAccess.csproj">
+      <Project>{5f123345-fb40-44ca-a5e5-c692b24bb87a}</Project>
+      <Name>Suppliers.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

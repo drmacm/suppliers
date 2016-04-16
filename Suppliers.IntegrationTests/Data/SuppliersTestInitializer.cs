@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using Suppliers.EF;
-using Suppliers.EF.DataModel;
+using Suppliers.DataAccess;
 
-namespace Suppliers.Data
+namespace Suppliers.IntegrationTests
 {
     /// <summary>Initializes database with test values, used for testing of data access layer.</summary>
     public class SuppliersTestInitializer : DropCreateDatabaseIfModelChanges<SuppliersContext>

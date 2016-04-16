@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Suppliers.Business.Business;
@@ -16,6 +17,9 @@ namespace Suppliers.Web.Controllers
         /// <param name="supplierGroupBll">Contains business rules related to <see cref="SupplierGroup"/> objects.</param>
         public SupplierController(SupplierBll supplierBll, SupplierGroupBll supplierGroupBll)
         {
+            if (supplierBll == null) throw new ArgumentNullException("supplierBll");
+            if (supplierGroupBll == null) throw new ArgumentNullException("supplierGroupBll");
+
             this.supplierBll = supplierBll;
             this.supplierGroupBll = supplierGroupBll;
         }
