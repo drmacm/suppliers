@@ -11,43 +11,20 @@ using NUnit.Framework;
 namespace Suppliers.IntegrationTests
 {
     [TestFixture]
-    public class IntegrationTests
+    public class IntegrationTests : BaseCoypuTest
     {
-        private string currentMoment;
-        [OneTimeSetUp]
-        public void BeforeTests()
-        {
-            currentMoment = DateTime.UtcNow.Ticks.ToString();
-            IisExpressHelper.StartIis();
-        }
-
-        [OneTimeTearDown]
-        public void AfterTests()
-        {
-            IisExpressHelper.StopIis();
-        }
-
-        private SessionConfiguration sessionConfiguration = new SessionConfiguration
-        {
-            AppHost = "localhost",
-            Port = 54401,
-            SSL =  false,
-            Driver = typeof(SeleniumWebDriver),
-            Browser = Browser.Chrome
-        };
-
         [Test]
         public void CreateNewSupplier()
         {
-            using (var browser = new BrowserSession(sessionConfiguration))
+            using (var browser = new BrowserSession(SessionConfiguration))
             {
                 browser.Visit("/");
                 var numberOfSupplierRows = browser.FindAllXPath("//tr").Count();
 
                 browser.Visit("/Supplier/Create");
 
-                browser.FillIn("Name").With("name_" + currentMoment);
-                browser.FillIn("Address").With("address_" + currentMoment);
+                browser.FillIn("Name").With("name_" + CurrentMoment);
+                browser.FillIn("Address").With("address_" + CurrentMoment);
                 browser.FillIn("EmailAddress").With("automated.test.address@domain.com");
                 browser.FillIn("PhoneNumber").With("123123123");
                 browser.Select("Security").From("GroupId");
@@ -64,15 +41,15 @@ namespace Suppliers.IntegrationTests
         [Test]
         public void EditExistingSupplier()
         {
-            using (var browser = new BrowserSession(sessionConfiguration))
+            using (var browser = new BrowserSession(SessionConfiguration))
             {
                 browser.Visit("/Supplier/Edit/1");
-                browser.FillIn("Name").With("name_" + currentMoment);
+                browser.FillIn("Name").With("name_" + CurrentMoment);
                 browser.ClickButton("Save");
 
                 var newName = browser.FindXPath("//tr[2]/td[1]").InnerHTML.Trim();
 
-                Assert.AreEqual("name_" + currentMoment, newName);
+                Assert.AreEqual("name_" + CurrentMoment, newName);
             }
         }
     }

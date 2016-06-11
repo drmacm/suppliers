@@ -55,7 +55,10 @@ namespace Suppliers.IntegrationTests
         {
             if (iisProcess != null)
             {
-                iisProcess.CloseMainWindow();
+                if (!iisProcess.HasExited)
+                {
+                    iisProcess.CloseMainWindow();
+                }
                 iisProcess.Dispose();
             }
         }
